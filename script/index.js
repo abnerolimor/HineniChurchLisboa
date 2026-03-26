@@ -27,14 +27,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contact-form');
   const msg = document.getElementById('form-msg');
   if (form && msg) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      const nome = form.name.value.trim();
+      const email = form.email.value.trim();
+      const mensagem = form.message.value.trim();
+
       msg.hidden = false;
-      msg.textContent = 'Mensagem enviada. Obrigado!';
-      form.reset();
+      msg.textContent = 'Enviando...';
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbyTbXN5TX6ebqwu7KmNls91Gm6eWgaqRkiOzkA5NS_yDebN6A6cB_rFyaAodqY8Z53V/exec', {
+          method: 'POST',
+          body: JSON.stringify({ nome, email, mensagem }),
+        });
+
+        msg.textContent = 'Mensagem enviada. Obrigado!';
+        form.reset();
+      } catch (err) {
+        msg.textContent = 'Erro ao enviar. Tente novamente.';
+      }
+
       setTimeout(() => { msg.hidden = true; msg.textContent = ''; }, 4000);
     });
   }
+
   // set CSS variable for header height so body padding matches header size
   function updateHeaderHeight() {
     if (header) {

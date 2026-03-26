@@ -74,8 +74,8 @@ nav {
 }
 
 .logo {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: contain;
 }
@@ -179,7 +179,7 @@ nav {
     /* Fundo: imagem + overlay preto + SVG decorativo */
     background: 
         linear-gradient(rgba(1,1,1,0.6), rgba(1,1,1,0.7)), /* overlay preto */
-        url('../image/hero-worship.jpg') center/cover no-repeat, /* imagem */
+        url('../image/imgBiblia.jpeg') center/cover no-repeat, /* imagem */
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23010101"/><path fill="%23F9F8F9" opacity="0.05" d="M0 400 Q300 200 600 400 T1200 400 L1200 800 L0 800 Z"/></svg>') center/cover no-repeat; /* efeito SVG */
     
     display: flex;
